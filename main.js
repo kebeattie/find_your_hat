@@ -24,15 +24,59 @@ class Field {
         
     }
 }
+const randomNumberGenerator = () => {
+    return Math.floor(Math.random()*3)
+    
+}
 
+const generateField = () => {
+    let hatCounter = 0;
+    let icons = [hole, fieldCharacter, hat];
+    let initialField = 
+    [
+        ['','','','',''],
+        ['','','','',''],
+        ['','','','',''],
+        ['','','','',''],
+        ['','','','','']
+    ]
+
+    for (let i = 0; i < initialField.length ; i ++) {
+        for (j = 0; j < initialField[i].length; j++) { 
+
+            let index = randomNumberGenerator()
+
+           
+            if (icons[index] === hat && hatCounter >= 1) {
+                do {
+                    index = randomNumberGenerator();
+                } while (icons[index] === hat)
+            }
+
+            initialField[i][j] = icons[index];
+            if (icons[index] === hat) {
+                hatCounter += 1;
+            }
+        }
+    }
+
+    initialField[0][0] = pathCharacter;
+    return initialField;
+
+    
+    
+
+
+}
 
 //Example of field for testing
 
-const field = new Field ([
-    [pathCharacter, fieldCharacter, fieldCharacter],
-    [fieldCharacter, fieldCharacter, hole],
-    [fieldCharacter, fieldCharacter, hat]
-])
+// const field = new Field ([
+//     [pathCharacter, fieldCharacter, fieldCharacter],
+//     [fieldCharacter, fieldCharacter, hole],
+//     [fieldCharacter, fieldCharacter, hat]
+// ])
+const field = new Field (generateField());
 field.printField();
 
 
