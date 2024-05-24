@@ -79,9 +79,12 @@ while (!exitGame) {
         if (field.field[playPosY][playPosX] === hole) {
             console.log('You fell down a hole! - Game over')
             exitGame = true;
+            break;
+
         } else if (field.field[playPosY][playPosX] === hat) {
             console.log('Congratulations! You found your hat! You win!')
             exitGame = true;
+            break;
         }
  
         field.field[playPosY][playPosX] = pathCharacter;
