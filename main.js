@@ -84,7 +84,8 @@ while (!exitGame) {
             exitGame = true;
         }
  
-        console.log(playPosY, playPosX);
+        field.field[playPosY][playPosX] = pathCharacter;
+        field.printField();
     }
     else {
         console.log('Choose one of the following directions: up, down, left, right');
