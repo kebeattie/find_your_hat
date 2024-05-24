@@ -24,14 +24,13 @@ class Field {
         
     }
 }
-const randomNumberGenerator = () => {
-    return Math.floor(Math.random()*3)
-    
+const randomNumberGenerator = (max) => {
+    return Math.floor(Math.random()*max) 
 }
 
 const generateField = () => {
-    let hatCounter = 0;
-    let icons = [hole, fieldCharacter, hat];
+    let holeCounter = 0;
+    let icons = [hole, fieldCharacter];
     let initialField = 
     [
         ['','','','',''],
@@ -44,23 +43,28 @@ const generateField = () => {
     for (let i = 0; i < initialField.length ; i ++) {
         for (j = 0; j < initialField[i].length; j++) { 
 
-            let index = randomNumberGenerator()
-
-           
-            if (icons[index] === hat && hatCounter >= 1) {
-                do {
-                    index = randomNumberGenerator();
-                } while (icons[index] === hat)
+            let index = randomNumberGenerator(2)
+            if (icons[index] === hole && holeCounter > 0) {
+                index = 1;
             }
 
             initialField[i][j] = icons[index];
-            if (icons[index] === hat) {
-                hatCounter += 1;
+    
+            if (icons[index] === hole ) {
+                holeCounter += 1;
             }
         }
+        holeCounter = 0;
     }
 
+    if (initialField[0][1] === hole && initialField[1][0] === hole) {
+        initialField[1][0] = fieldCharacter;
+    }
+    if (initialField[0][1] === hole && initialField[1][0] === hole && initialField[1][1] === hole) {
+        initialField[1][0] = fieldCharacter;
+    }
     initialField[0][0] = pathCharacter;
+    initialField[randomNumberGenerator(5)][randomNumberGenerator(5)] = hat;
     return initialField;
 
     
