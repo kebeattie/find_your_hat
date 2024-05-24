@@ -73,13 +73,6 @@ const generateField = () => {
 
 }
 
-//Example of field for testing
-
-// const field = new Field ([
-//     [pathCharacter, fieldCharacter, fieldCharacter],
-//     [fieldCharacter, fieldCharacter, hole],
-//     [fieldCharacter, fieldCharacter, hat]
-// ])
 const field = new Field (generateField());
 field.printField();
 
@@ -123,7 +116,7 @@ while (!exitGame) {
             break;
         }
        
-        console.log(field.field[playPosY][playPosX])
+        
         if (field.field[playPosY][playPosX] === hole) {
             console.log('You fell down a hole! - Game over')
             exitGame = true;
