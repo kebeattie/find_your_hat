@@ -8,4 +8,7 @@ Node.js
 
 ## Installation and Usage
 
-To play this game, Node must be installed in your local environment. Download the project folder, using your command line navigate to the directory, type 'NODE main.js' and press enter.
+To play this game, Node must be installed in your local environment. 
+- Download the project folder.
+- Using your command line navigate to the directory.
+- Type 'NODE main.js' and press enter.
